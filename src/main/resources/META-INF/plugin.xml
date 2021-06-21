@@ -1,0 +1,37 @@
+<!--suppress PluginXmlValidity -->
+<idea-plugin>
+    <id>cn.jgayb.fenix-plugin</id>
+    <name>FenixPlugin</name>
+    <vendor email="82099359@qq.com" url="http://www.yourcompany.com">YourCompany</vendor>
+
+    <description><![CDATA[
+    Enter short description for your plugin here.<br/>
+    <em>most HTML tags may be used</em>
+    ]]></description>
+
+    <!-- please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.java</depends>
+
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+        <dom.fileDescription implementation="cn.jgayb.fenixplugin.FenixDescription"/>
+        <localInspection
+                language="JAVA"
+                displayName="Test field error"
+                groupPath="Java"
+                groupBundle="messages.InspectionsBundle"
+                groupKey="group.names.probable.bugs"
+                enabledByDefault="true"
+                level="ERROR"
+                implementationClass="cn.jgayb.fenixplugin.TestInspectionTool"/>
+        <codeInsight.lineMarkerProvider language="JAVA"
+                                        implementationClass="cn.jgayb.fenixplugin.FenixItemLineMarkerProvider"/>
+    </extensions>
+
+    <!--    <actions>-->
+    <!--        &lt;!&ndash; Add your actions here &ndash;&gt;-->
+    <!--    </actions>-->
+</idea-plugin>
