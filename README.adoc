@@ -1,1 +1,1 @@
-= Fenix idea插件
+= Fenix Idea插件
