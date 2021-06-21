@@ -32,8 +32,12 @@ intellij {
 }
 patchPluginXml {
     changeNotes = """
-      Add change notes here.<br>
-      <em>most HTML tags may be used</em>"""
+      If you have any comments please let me know.<br>
+      <em><p>2021.1:</p>
+<ul>
+  <li>xml jump to repository</li>
+  <li>repository linked to xml</li>
+</ul></em>"""
 }
 test {
     useJUnitPlatform()

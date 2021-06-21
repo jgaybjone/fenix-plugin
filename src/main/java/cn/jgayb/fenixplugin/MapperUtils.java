@@ -57,7 +57,7 @@ public final class MapperUtils {
         });
     }
 
-    public static boolean isElementWithinMybatisFile(@NotNull PsiElement element) {
+    public static boolean isElementWithinFenixFile(@NotNull PsiElement element) {
         PsiFile psiFile = element.getContainingFile();
         return element instanceof XmlElement && DomUtils.isFenixsFile(psiFile);
     }

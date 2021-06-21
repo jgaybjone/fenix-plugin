@@ -2,11 +2,11 @@
 <idea-plugin>
     <id>cn.jgayb.fenix-plugin</id>
     <name>FenixPlugin</name>
-    <vendor email="82099359@qq.com" url="http://www.yourcompany.com">YourCompany</vendor>
+    <vendor email="82099359@qq.com" url="https://github.com/jgaybjone/fenix-plugin">jgayb.cn</vendor>
 
     <description><![CDATA[
-    Enter short description for your plugin here.<br/>
-    <em>most HTML tags may be used</em>
+🔥 Fenix (Phoenix) is a spring data JPA extension library for solving complex dynamic SQL (jpql). It aims to help developers write complex, dynamic and easy to maintain SQL more conveniently and quickly. It supports XML, Java chain API and dynamic condition annotation to write dynamic SQL.<br/>
+    <em>JPA,Fenix,Spring data</em>
     ]]></description>
 
     <!-- please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html
@@ -18,6 +18,7 @@
     <extensions defaultExtensionNs="com.intellij">
         <!-- Add your extensions here -->
         <dom.fileDescription implementation="cn.jgayb.fenixplugin.FenixDescription"/>
+        <codeInsight.lineMarkerProvider language="XML" implementationClass="cn.jgayb.fenixplugin.StatementLineMarkerProvider"/>
         <localInspection
                 language="JAVA"
                 displayName="Test field error"

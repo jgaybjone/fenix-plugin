@@ -72,7 +72,7 @@ public class FenixItemLineMarkerProvider extends RelatedItemLineMarkerProvider {
     private void fenixEmpty(PsiMethodImpl psiMethod, CommonProcessors.CollectProcessor<IdDomElement> processor) {
         final String className = Objects.requireNonNull(psiMethod.getContainingClass()).getQualifiedName();
         System.out.println("class name: " + className);
-        final String fenixId = Objects.requireNonNull(psiMethod.getContainingClass()).getQualifiedName();
+        final String fenixId = psiMethod.getName();
         this.process(psiMethod, processor, className + "." + fenixId);
     }
 
