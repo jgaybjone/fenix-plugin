@@ -18,18 +18,25 @@
     <extensions defaultExtensionNs="com.intellij">
         <!-- Add your extensions here -->
         <dom.fileDescription implementation="cn.jgayb.fenixplugin.FenixDescription"/>
-        <codeInsight.lineMarkerProvider language="XML" implementationClass="cn.jgayb.fenixplugin.StatementLineMarkerProvider"/>
-        <localInspection
-                language="JAVA"
-                displayName="Test field error"
-                groupPath="Java"
-                groupBundle="messages.InspectionsBundle"
-                groupKey="group.names.probable.bugs"
-                enabledByDefault="true"
-                level="ERROR"
-                implementationClass="cn.jgayb.fenixplugin.TestInspectionTool"/>
+        <projectService serviceImplementation="cn.jgayb.fenixplugin.JavaService"/>
+        <projectService serviceImplementation="cn.jgayb.fenixplugin.EditorService"/>
+        <codeInsight.lineMarkerProvider language="XML"
+                                        implementationClass="cn.jgayb.fenixplugin.StatementLineMarkerProvider"/>
+<!--        <localInspection-->
+<!--                language="JAVA"-->
+<!--                displayName="Test field error"-->
+<!--                groupPath="Java"-->
+<!--                groupBundle="messages.InspectionsBundle"-->
+<!--                groupKey="group.names.probable.bugs"-->
+<!--                enabledByDefault="true"-->
+<!--                level="ERROR"-->
+<!--                implementationClass="cn.jgayb.fenixplugin.TestInspectionTool"/>-->
         <codeInsight.lineMarkerProvider language="JAVA"
                                         implementationClass="cn.jgayb.fenixplugin.FenixItemLineMarkerProvider"/>
+        <fileTemplateGroup implementation="cn.jgayb.fenixplugin.FenixsFileTemplateDescriptorFactory"/>
+        <intentionAction order="first">
+            <className>cn.jgayb.fenixplugin.GenerateMapperIntention</className>
+        </intentionAction>
     </extensions>
 
     <!--    <actions>-->

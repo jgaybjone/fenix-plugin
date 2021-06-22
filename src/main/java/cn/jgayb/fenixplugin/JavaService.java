@@ -78,5 +78,15 @@ public class JavaService {
         }
     }
 
+    @SuppressWarnings("unchecked")
+    public void process(@NotNull PsiClass clazz, @NotNull Processor<Fenixs> processor) {
+        String ns = clazz.getQualifiedName();
+        for (Fenixs mapper : MapperUtils.findMappers(clazz.getProject())) {
+            if (MapperUtils.getNamespace(mapper).equals(ns)) {
+                processor.process(mapper);
+            }
+        }
+    }
+
 }
 

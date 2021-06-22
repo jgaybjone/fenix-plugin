@@ -5,7 +5,7 @@ plugins {
 }
 
 group 'org.example'
-version '2021.1'
+version '0.2'
 sourceCompatibility = 11
 targetCompatibility = 11
 
@@ -24,12 +24,12 @@ dependencies {
 
 // See https://github.com/JetBrains/gradle-intellij-plugin/
 intellij {
-    version = project.getVersion()
+    version = '2021.1'
     plugins = ['com.intellij.java']
     type = 'IU'
 //    plugins = ['Spring', 'DatabaseTools', 'com.intellij.java']
     sameSinceUntilBuild = false
-}
+}//
 patchPluginXml {
     changeNotes = """
       If you have any comments please let me know.<br>
@@ -37,6 +37,11 @@ patchPluginXml {
 <ul>
   <li>xml jump to repository</li>
   <li>repository linked to xml</li>
+</ul></em>
+      <em><p>0.2:</p>
+<ul>
+  <li>Add Fenixs xml template</li>
+  <li>Fenixs mapper xml convenient generation</li>
 </ul></em>"""
 }
 test {
