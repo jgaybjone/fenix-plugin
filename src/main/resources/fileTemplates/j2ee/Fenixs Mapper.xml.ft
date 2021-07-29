@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE fenixs PUBLIC "-//glp-ca.oss-cn-shanghai-finance-1-pub.aliyuncs.com//DTD Fenix//EN"
-        "https://glp-ca.oss-cn-shanghai-finance-1-pub.aliyuncs.com/xml/fenix.dtd">
+<!DOCTYPE fenixs PUBLIC "-//blinkfox.github.io//DTD Fenix//EN"
+        "https://blinkfox.github.io/fenix.dtd">
 <fenixs namespace="${NAMESPACE}" >
 </fenixs>

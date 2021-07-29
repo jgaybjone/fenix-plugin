@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!ELEMENT fenixs (fenix* )+>
+<!ATTLIST fenixs
+namespace CDATA #IMPLIED
+>
+
+<!ELEMENT fenix (#PCDATA, trimWhere*, andEqual*, andLike*, like*, orLike*, notLike*, andNotLike*, orNotLike*, startsWith*, andStartsWith*, orStartsWith*, notStartsWith*, andNotStartsWith*, orNotStartsWith*, equal*, orEqual*, notEqual*, andNotEqual*, orNotEqual*, greaterThan*, andGreaterThan*, orGreaterThan*, lessThan*, andLessThan*, orLessThan*, greaterThanEqual*, andGreaterThanEqual*, andGreaterThanEqual*, orGreaterThanEqual*, lessThanEqual*, andLessThanEqual*, orLessThanEqual*, in*, andIn*, orIn*, notIn*, andNotIn*, orNotIn*, isNull*, andIsNull*, orIsNull*, isNotNull*, andIsNotNull*, orIsNotNull*, between*, andBetween*, orBetween* )>
+<!ATTLIST fenix 
+id NMTOKEN #REQUIRED>
+
+<!ELEMENT trimWhere (#PCDATA, andEqual*, andLike*, like*, orLike*, notLike*, andNotLike*, orNotLike*, startsWith*, andStartsWith*, orStartsWith*, notStartsWith*, andNotStartsWith*, orNotStartsWith*, equal*, orEqual*, notEqual*, andNotEqual*, orNotEqual*, greaterThan*, andGreaterThan*, orGreaterThan*, lessThan*, andLessThan*, orLessThan*, greaterThanEqual*, andGreaterThanEqual*, andGreaterThanEqual*, orGreaterThanEqual*, lessThanEqual*, andLessThanEqual*, orLessThanEqual* in*, andIn*, orIn*, notIn*, andNotIn*, orNotIn* isNull*, andIsNull*, orIsNull*, isNotNull*, andIsNotNull*, orIsNotNull* between*, andBetween*, orBetween* )>        
+<!ELEMENT andEqual EMPTY>
+<!ATTLIST andEqual
+field CDATA #REQUIRED
+name CDATA #IMPLIED
+value CDATA #REQUIRED
+match CDATA #IMPLIED
+>
+
+<!ELEMENT equal EMPTY>
+<!ATTLIST equal
+field CDATA #REQUIRED
+name CDATA #IMPLIED
+value CDATA #REQUIRED
+match CDATA #IMPLIED
+>
+
+<!ELEMENT orEqual EMPTY>
+<!ATTLIST orEqual
+field CDATA #REQUIRED
+name CDATA #IMPLIED
+value CDATA #REQUIRED
+match CDATA #IMPLIED
+>
+
+<!ELEMENT notEqual EMPTY>
+<!ATTLIST notEqual
+field CDATA #REQUIRED
+name CDATA #IMPLIED
+value CDATA #REQUIRED
+match CDATA #IMPLIED
+>
+
+<!ELEMENT andNotEqual EMPTY>
+<!ATTLIST andNotEqual
+field CDATA #REQUIRED
+name CDATA #IMPLIED
+value CDATA #REQUIRED
+match CDATA #IMPLIED
+>
+
+<!ELEMENT orNotEqual EMPTY>
+<!ATTLIST orNotEqual
+field CDATA #REQUIRED
+name CDATA #IMPLIED
+value CDATA #REQUIRED
+match CDATA #IMPLIED
+>
+
+<!ELEMENT greaterThan EMPTY>
+<!ATTLIST greaterThan
+field CDATA #REQUIRED
+name CDATA #IMPLIED
+value CDATA #REQUIRED
+match CDATA #IMPLIED
+>
+
+<!ELEMENT andGreaterThan EMPTY>
+<!ATTLIST andGreaterThan
+field CDATA #REQUIRED
+name CDATA #IMPLIED
+value CDATA #REQUIRED
+match CDATA #IMPLIED
+>
+
+<!ELEMENT orGreaterThan EMPTY>
+<!ATTLIST orGreaterThan
+field CDATA #REQUIRED
+name CDATA #IMPLIED
+value CDATA #REQUIRED
+match CDATA #IMPLIED
+>
+
+<!ELEMENT lessThan EMPTY>
+<!ATTLIST lessThan
+field CDATA #REQUIRED
+name CDATA #IMPLIED
+value CDATA #REQUIRED
+match CDATA #IMPLIED
+>
+
+<!ELEMENT andLessThan EMPTY>
+<!ATTLIST andLessThan
+field CDATA #REQUIRED
+name CDATA #IMPLIED
+value CDATA #REQUIRED
+match CDATA #IMPLIED
+>
+
+<!ELEMENT orLessThan EMPTY>
+<!ATTLIST orLessThan
+field CDATA #REQUIRED
+name CDATA #IMPLIED
+value CDATA #REQUIRED
+match CDATA #IMPLIED
+>
+
+<!ELEMENT greaterThanEqual EMPTY>
+<!ATTLIST greaterThanEqual
+field CDATA #REQUIRED
+name CDATA #IMPLIED
+value CDATA #REQUIRED
+match CDATA #IMPLIED
+>
+
+<!ELEMENT andGreaterThanEqual EMPTY>
+<!ATTLIST andGreaterThanEqual
+field CDATA #REQUIRED
+name CDATA #IMPLIED
+value CDATA #REQUIRED
+match CDATA #IMPLIED
+>
+
+<!ELEMENT orGreaterThanEqual EMPTY>
+<!ATTLIST orGreaterThanEqual
+field CDATA #REQUIRED
+name CDATA #IMPLIED
+value CDATA #REQUIRED
+match CDATA #IMPLIED
+>
+
+<!ELEMENT lessThanEqual EMPTY>
+<!ATTLIST lessThanEqual
+field CDATA #REQUIRED
+name CDATA #IMPLIED
+value CDATA #REQUIRED
+match CDATA #IMPLIED
+>
+
+<!ELEMENT andLessThanEqual EMPTY>
+<!ATTLIST andLessThanEqual
+field CDATA #REQUIRED
+name CDATA #IMPLIED
+value CDATA #REQUIRED
+match CDATA #IMPLIED
+>
+
+<!ELEMENT orLessThanEqual EMPTY>
+<!ATTLIST orLessThanEqual
+field CDATA #REQUIRED
+name CDATA #IMPLIED
+value CDATA #REQUIRED
+match CDATA #IMPLIED
+>
+
+<!ELEMENT andLike EMPTY>
+<!ATTLIST andLike
+field CDATA #REQUIRED
+name CDATA #IMPLIED
+value CDATA #REQUIRED
+pattern CDATA #IMPLIED
+match CDATA #IMPLIED
+>
+
+<!ELEMENT like EMPTY>
+<!ATTLIST like
+field CDATA #REQUIRED
+name CDATA #IMPLIED
+value CDATA #REQUIRED
+pattern CDATA #IMPLIED
+match CDATA #IMPLIED
+>
+
+<!ELEMENT orLike EMPTY>
+<!ATTLIST orLike
+field CDATA #REQUIRED
+name CDATA #IMPLIED
+value CDATA #REQUIRED
+pattern CDATA #IMPLIED
+match CDATA #IMPLIED
+>
+
+<!ELEMENT notLike EMPTY>
+<!ATTLIST notLike
+field CDATA #REQUIRED
+name CDATA #IMPLIED
+value CDATA #REQUIRED
+pattern CDATA #IMPLIED
+match CDATA #IMPLIED
+>
+
+<!ELEMENT andNotLike EMPTY>
+<!ATTLIST andNotLike
+field CDATA #REQUIRED
+name CDATA #IMPLIED
+value CDATA #REQUIRED
+pattern CDATA #IMPLIED
+match CDATA #IMPLIED
+>
+
+<!ELEMENT orNotLike EMPTY>
+<!ATTLIST orNotLike
+field CDATA #REQUIRED
+name CDATA #IMPLIED
+value CDATA #REQUIRED
+pattern CDATA #IMPLIED
+match CDATA #IMPLIED
+>
+
+<!ELEMENT startsWith EMPTY>
+<!ATTLIST startsWith
+field CDATA #REQUIRED
+name CDATA #IMPLIED
+value CDATA #REQUIRED
+match CDATA #IMPLIED
+>
+
+<!ELEMENT andStartsWith EMPTY>
+<!ATTLIST andStartsWith
+field CDATA #REQUIRED
+name CDATA #IMPLIED
+value CDATA #REQUIRED
+match CDATA #IMPLIED
+>
+
+<!ELEMENT orStartsWith EMPTY>
+<!ATTLIST orStartsWith
+field CDATA #REQUIRED
+name CDATA #IMPLIED
+value CDATA #REQUIRED
+match CDATA #IMPLIED
+>
+
+<!ELEMENT notStartsWith EMPTY>
+<!ATTLIST notStartsWith
+field CDATA #REQUIRED
+name CDATA #IMPLIED
+value CDATA #REQUIRED
+match CDATA #IMPLIED
+>
+
+<!ELEMENT andNotStartsWith EMPTY>
+<!ATTLIST andNotStartsWith
+field CDATA #REQUIRED
+name CDATA #IMPLIED
+value CDATA #REQUIRED
+match CDATA #IMPLIED
+>
+
+<!ELEMENT orNotStartsWith EMPTY>
+<!ATTLIST orNotStartsWith
+field CDATA #REQUIRED
+name CDATA #IMPLIED
+value CDATA #REQUIRED
+match CDATA #IMPLIED
+>
+
+<!ELEMENT in EMPTY>
+<!ATTLIST in
+field CDATA #REQUIRED
+name CDATA #IMPLIED
+value CDATA #REQUIRED
+match CDATA #IMPLIED
+>
+
+<!ELEMENT andIn EMPTY>
+<!ATTLIST andIn
+field CDATA #REQUIRED
+name CDATA #IMPLIED
+value CDATA #REQUIRED
+match CDATA #IMPLIED
+>
+
+<!ELEMENT orIn EMPTY>
+<!ATTLIST orIn
+field CDATA #REQUIRED
+name CDATA #IMPLIED
+value CDATA #REQUIRED
+match CDATA #IMPLIED
+>
+
+<!ELEMENT notIn EMPTY>
+<!ATTLIST notIn
+field CDATA #REQUIRED
+name CDATA #IMPLIED
+value CDATA #REQUIRED
+match CDATA #IMPLIED
+>
+
+<!ELEMENT andNotIn EMPTY>
+<!ATTLIST andNotIn
+field CDATA #REQUIRED
+name CDATA #IMPLIED
+value CDATA #REQUIRED
+match CDATA #IMPLIED
+>
+
+<!ELEMENT orNotIn EMPTY>
+<!ATTLIST orNotIn
+field CDATA #REQUIRED
+name CDATA #IMPLIED
+value CDATA #REQUIRED
+match CDATA #IMPLIED
+>
+
+<!ELEMENT isNull EMPTY>
+<!ATTLIST isNull
+field CDATA #REQUIRED
+match CDATA #IMPLIED
+>
+
+<!ELEMENT andIsNull EMPTY>
+<!ATTLIST andIsNull
+field CDATA #REQUIRED
+match CDATA #IMPLIED
+>
+
+<!ELEMENT orIsNull EMPTY>
+<!ATTLIST orIsNull
+field CDATA #REQUIRED
+match CDATA #IMPLIED
+>
+
+<!ELEMENT isNotNull EMPTY>
+<!ATTLIST isNotNull
+field CDATA #REQUIRED
+match CDATA #IMPLIED
+>
+
+<!ELEMENT andIsNotNull EMPTY>
+<!ATTLIST andIsNotNull
+field CDATA #REQUIRED
+match CDATA #IMPLIED
+>
+
+<!ELEMENT orIsNotNull EMPTY>
+<!ATTLIST orIsNotNull
+field CDATA #REQUIRED
+match CDATA #IMPLIED
+>
+
+<!ELEMENT between EMPTY>
+<!ATTLIST between
+field CDATA #REQUIRED
+startName CDATA #IMPLIED
+start CDATA #REQUIRED
+endName CDATA #IMPLIED
+end CDATA #REQUIRED
+match CDATA #IMPLIED
+>
+
+<!ELEMENT andBetween EMPTY>
+<!ATTLIST andBetween
+field CDATA #REQUIRED
+startName CDATA #IMPLIED
+start CDATA #REQUIRED
+endName CDATA #IMPLIED
+end CDATA #REQUIRED
+match CDATA #IMPLIED
+>
+
+<!ELEMENT orBetween EMPTY>
+<!ATTLIST orBetween
+field CDATA #REQUIRED
+startName CDATA #IMPLIED
+start CDATA #REQUIRED
+endName CDATA #IMPLIED
+end CDATA #REQUIRED
+match CDATA #IMPLIED
+>

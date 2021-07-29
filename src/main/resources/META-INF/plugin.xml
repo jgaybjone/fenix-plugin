@@ -21,6 +21,7 @@
         <dom.fileDescription implementation="cn.jgayb.fenixplugin.FenixDescription"/>
         <projectService serviceImplementation="cn.jgayb.fenixplugin.JavaService"/>
         <projectService serviceImplementation="cn.jgayb.fenixplugin.EditorService"/>
+        <standardResourceProvider implementation="cn.jgayb.fenixplugin.FenixStandardResourceProvider"/>
         <codeInsight.lineMarkerProvider language="XML"
                                         implementationClass="cn.jgayb.fenixplugin.StatementLineMarkerProvider"/>
 <!--        <localInspection-->
