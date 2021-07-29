@@ -5,7 +5,7 @@ plugins {
 }
 
 group 'org.example'
-version '0.2'
+version '0.2.4'
 sourceCompatibility = 11
 targetCompatibility = 11
 
@@ -24,8 +24,8 @@ dependencies {
 
 // See https://github.com/JetBrains/gradle-intellij-plugin/
 intellij {
-    version = '2021.1'
-    plugins = ['com.intellij.java']
+    version = 'IU-2021.2'
+    plugins = ['com.intellij.java', 'SpringData','Spring','SpringBoot', 'DatabaseTools']
     type = 'IU'
 //    plugins = ['Spring', 'DatabaseTools', 'com.intellij.java']
     sameSinceUntilBuild = false
@@ -42,6 +42,11 @@ patchPluginXml {
 <ul>
   <li>Add Fenixs xml template</li>
   <li>Fenixs mapper xml convenient generation</li>
+</ul></em>      <em><p>0.2.3:</p>
+<ul>
+  <li>Add svg</li><p>0.2.4:</p>
+<ul>
+  <li>Fenix.xml template add dtd</li>
 </ul></em>"""
 }
 test {

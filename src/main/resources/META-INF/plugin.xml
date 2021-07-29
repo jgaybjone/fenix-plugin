@@ -1,7 +1,7 @@
 <!--suppress PluginXmlValidity -->
 <idea-plugin>
     <id>cn.jgayb.fenix-plugin</id>
-    <name>FenixPlugin</name>
+    <name>Fenix</name>
     <vendor email="82099359@qq.com" url="https://github.com/jgaybjone/fenix-plugin">jgayb.cn</vendor>
 
     <description><![CDATA[
@@ -13,6 +13,7 @@
          on how to target different products -->
     <depends>com.intellij.modules.platform</depends>
     <depends>com.intellij.modules.java</depends>
+    <depends>com.intellij.database</depends>
 
 
     <extensions defaultExtensionNs="com.intellij">
