@@ -14,6 +14,7 @@ import com.intellij.psi.impl.source.PsiMethodImpl;
 import com.intellij.psi.impl.source.tree.java.PsiLiteralExpressionImpl;
 import com.intellij.util.CommonProcessors;
 import com.intellij.util.Processor;
+import com.intellij.util.ReflectionUtil;
 import com.intellij.util.xml.DomElement;
 import org.jetbrains.annotations.NotNull;
 
@@ -31,9 +32,7 @@ public class FenixItemLineMarkerProvider extends RelatedItemLineMarkerProvider {
     protected void collectNavigationMarkers(@NotNull PsiElement element, @NotNull Collection<? super RelatedItemLineMarkerInfo<?>> result) {
         if (element instanceof PsiMethodImpl) {
             final PsiMethodImpl psiMethod = (PsiMethodImpl) element;
-            Arrays.stream(psiMethod.getAnnotations()).filter(psiAnnotation -> {
-                return Objects.equals(psiAnnotation.getQualifiedName(), "com.blinkfox.fenix.jpa.QueryFenix");
-            }).findFirst().ifPresent(psiAnnotation -> {
+            Arrays.stream(psiMethod.getAnnotations()).filter(psiAnnotation -> Objects.equals(psiAnnotation.getQualifiedName(), "com.blinkfox.fenix.jpa.QueryFenix")).findFirst().ifPresent(psiAnnotation -> {
                 final PsiAnnotationMemberValue psiAnnotationMemberValue = psiAnnotation.findAttributeValue("value");
                 CommonProcessors.CollectProcessor<IdDomElement> processor = new CommonProcessors.CollectProcessor<IdDomElement>();
                 if (psiAnnotationMemberValue instanceof PsiLiteralExpressionImpl) {
@@ -59,11 +58,11 @@ public class FenixItemLineMarkerProvider extends RelatedItemLineMarkerProvider {
                 Collection<IdDomElement> results = processor.getResults();
                 if (CollectionUtils.isNotEmpty(results)) {
                     NavigationGutterIconBuilder<PsiElement> builder =
-                            NavigationGutterIconBuilder.create(IconLoader.getIcon("/images/logo.png"))
+                            NavigationGutterIconBuilder.create(IconLoader.getIcon("/images/logo.png", Objects.requireNonNull(ReflectionUtil.getGrandCallerClass())))
                                     .setAlignment(GutterIconRenderer.Alignment.CENTER)
                                     .setTargets(Collections2.transform(results, DomElement::getXmlTag))
-                                    .setTooltipTitle("Navigation to target in fenix mapper xml");
-                    result.add(builder.createLineMarkerInfo(((PsiNameIdentifierOwner) element).getNameIdentifier()));
+                                    .setTooltipTitle("Navigation to Target in Fenix Mapper Xml");
+                    result.add(builder.createLineMarkerInfo(Objects.requireNonNull(((PsiNameIdentifierOwner) element).getNameIdentifier())));
                 }
             });
         }

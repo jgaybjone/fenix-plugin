@@ -1,6 +1,5 @@
 package cn.jgayb.fenixplugin;
 
-import com.intellij.codeHighlighting.Pass;
 import com.intellij.codeInsight.daemon.LineMarkerInfo;
 import com.intellij.codeInsight.daemon.LineMarkerProvider;
 import com.intellij.openapi.editor.markup.GutterIconRenderer;
@@ -10,9 +9,9 @@ import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiMethod;
 import com.intellij.psi.impl.source.xml.XmlTagImpl;
 import com.intellij.psi.xml.XmlTag;
+import com.intellij.util.ReflectionUtil;
 import com.intellij.util.xml.DomElement;
 import com.intellij.util.xml.DomUtil;
-import com.intellij.util.xml.GenericAttributeValue;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
@@ -31,11 +30,12 @@ public class StatementLineMarkerProvider implements LineMarkerProvider {
         return processResult.map(psiMethod -> new LineMarkerInfo<>(
                 (XmlTag) element,
                 element.getTextRange(),
-                IconLoader.getIcon("/images/logo.png"),
-                Pass.UPDATE_ALL,
+                IconLoader.getIcon("/images/logo.png", Objects.requireNonNull(ReflectionUtil.getGrandCallerClass())),
+
                 from -> "Data access object found - " + Objects.requireNonNull(psiMethod.getContainingClass()).getQualifiedName(),
                 (e, from) -> ((Navigatable) psiMethod).navigate(true),
-                GutterIconRenderer.Alignment.CENTER
+                GutterIconRenderer.Alignment.CENTER,
+                () -> "Fenix"
         )).orElse(null);
     }
 
@@ -45,8 +45,8 @@ public class StatementLineMarkerProvider implements LineMarkerProvider {
     }
 
     private Optional<PsiMethod> apply(@NotNull XmlTag from) {
-        if (from instanceof XmlTagImpl){
-            final String name = ((XmlTagImpl) from).getName();
+        if (from instanceof XmlTagImpl) {
+            final String name = from.getName();
             if (!"fenix".equals(name)) {
                 return Optional.empty();
             }

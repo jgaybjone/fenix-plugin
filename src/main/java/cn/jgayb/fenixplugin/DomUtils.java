@@ -4,6 +4,8 @@ import com.google.common.base.Function;
 import com.google.common.collect.Collections2;
 import com.intellij.openapi.project.Project;
 import com.intellij.psi.PsiFile;
+import com.intellij.psi.impl.source.tree.injected.InjectedLanguageEditorUtil;
+import com.intellij.psi.impl.source.tree.injected.InjectedLanguageUtil;
 import com.intellij.psi.search.GlobalSearchScope;
 import com.intellij.psi.xml.XmlFile;
 import com.intellij.psi.xml.XmlTag;
@@ -41,7 +43,10 @@ public final class DomUtils {
             return false;
         }
         XmlTag rootTag = ((XmlFile) file).getRootTag();
-        return null != rootTag && rootTag.getName().equals("fenixs");
+        final boolean result = null != rootTag && rootTag.getName().equals("fenixs");
+        if (result){
+        }
+        return result;
     }
 
     public static boolean isMybatisConfigurationFile(@NotNull PsiFile file) {

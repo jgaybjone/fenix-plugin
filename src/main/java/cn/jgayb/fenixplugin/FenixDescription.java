@@ -3,6 +3,7 @@ package cn.jgayb.fenixplugin;
 import com.intellij.openapi.module.Module;
 import com.intellij.psi.xml.XmlFile;
 import com.intellij.util.xml.DomFileDescription;
+import com.intellij.util.xml.DomReferenceInjector;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 

@@ -61,14 +61,14 @@ public class GenerateMapperIntention implements IntentionAction {
         if (CollectionUtils.isEmpty(directories)) {
             handleChooseNewFolder(project, editor, clazz);
         } else {
-            handleMutilDirectories(project, editor, clazz, directories);
+            handleMultipleDirectories(project, editor, clazz, directories);
         }
     }
 
-    private void handleMutilDirectories(Project project,
-                                        final Editor editor,
-                                        final PsiClass clazz,
-                                        Collection<PsiDirectory> directories) {
+    private void handleMultipleDirectories(Project project,
+                                           final Editor editor,
+                                           final PsiClass clazz,
+                                           Collection<PsiDirectory> directories) {
         final Map<String, PsiDirectory> pathMap = getPathMap(directories);
         final ArrayList<String> keys = Lists.newArrayList(pathMap.keySet());
         ListSelectionListener popupListener = new ListSelectionListener() {
@@ -120,21 +120,19 @@ public class GenerateMapperIntention implements IntentionAction {
         Collection<String> result = Lists.newArrayList(Collections2.transform(paths, new Function<String, String>() {
             @Override
             public String apply(String input) {
-                String relativePath = FileUtil.getRelativePath(projectBasePath, input, File.separatorChar);
+                String relativePath = FileUtil.getRelativePath(Objects.requireNonNull(projectBasePath), input, File.separatorChar);
                 Module module = ModuleUtil.findModuleForPsiElement(pathMap.get(input));
                 return null == module ? relativePath : ("[" + module.getName() + "] " + relativePath);
             }
         }));
-        return result.toArray(new String[result.size()]);
+        return result.toArray(new String[0]);
     }
 
     private Map<String, PsiDirectory> getPathMap(Collection<PsiDirectory> directories) {
         Map<String, PsiDirectory> result = Maps.newHashMap();
         for (PsiDirectory directory : directories) {
             String presentableUrl = directory.getVirtualFile().getPresentableUrl();
-            if (presentableUrl != null) {
-                result.put(presentableUrl, directory);
-            }
+            result.put(presentableUrl, directory);
         }
         return result;
     }
@@ -151,7 +149,7 @@ public class GenerateMapperIntention implements IntentionAction {
             Properties properties = new Properties();
             properties.setProperty("NAMESPACE", clazz.getQualifiedName());
             PsiElement psiFile = MapperUtils.createMapperFromFileTemplate(FenixsFileTemplateDescriptorFactory.FENIX_MAPPER_XML_TEMPLATE,
-                    clazz.getName(), directory, properties);
+                    Objects.requireNonNull(clazz.getName()), directory, properties);
             EditorService.getInstance(clazz.getProject()).scrollTo(psiFile, 0);
         } catch (Exception e) {
             HintManager.getInstance().showErrorHint(editor, "Failed: " + e.getCause());
