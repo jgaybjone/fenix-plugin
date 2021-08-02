@@ -28,6 +28,9 @@ public class AliasConverter extends ResolvingConverter<PsiClass> implements Cust
 
     @Override
     public @Nullable PsiClass fromString(@Nullable @NonNls String s, ConvertContext context) {
+        if (s == null || s.isBlank()) {
+            return null;
+        }
         return DomJavaUtil.findClass(Objects.requireNonNull(s).trim(), context.getFile(), context.getModule(),
                 GlobalSearchScope.allScope(context.getProject()));
     }
