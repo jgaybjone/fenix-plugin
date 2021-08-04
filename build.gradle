@@ -5,7 +5,7 @@ plugins {
 }
 
 group 'org.example'
-version '0.2.5'
+version '0.2.6'
 sourceCompatibility = 11
 targetCompatibility = 11
 
@@ -31,7 +31,7 @@ intellij {
     sameSinceUntilBuild = false
 }//
 patchPluginXml {
-    sinceBuild = '201.7223'
+    sinceBuild = '203.8084.24'
     untilBuild = '212.*'
     changeNotes = """
       If you have any comments please let me know.<br>
@@ -55,6 +55,10 @@ patchPluginXml {
 <em><p>0.2.5:</p>
 <ul>
   <li>Code completion fro resultMap</li>
+</ul></em>
+<em><p>0.2.6:</p>
+<ul>
+  <li>Fix some errors</li>
 </ul></em>"""
 
 }
