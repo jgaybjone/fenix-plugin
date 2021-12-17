@@ -5,7 +5,7 @@ plugins {
 }
 
 group 'org.example'
-version '0.2.6'
+version '0.2.8'
 sourceCompatibility = 11
 targetCompatibility = 11
 
@@ -24,15 +24,15 @@ dependencies {
 
 // See https://github.com/JetBrains/gradle-intellij-plugin/
 intellij {
-    version = 'IU-2021.2'
-    plugins = ['com.intellij.java', 'SpringData','Spring','SpringBoot', 'DatabaseTools','JPA']
+    version = 'IU-2021.3'
+    plugins = ['com.intellij.java']
     type = 'IU'
 //    plugins = ['Spring', 'DatabaseTools', 'com.intellij.java']
     sameSinceUntilBuild = false
 }//
 patchPluginXml {
     sinceBuild = '203.8084.24'
-    untilBuild = '212.*'
+    untilBuild = '213.*'
     changeNotes = """
       If you have any comments please let me know.<br>
       <em><p>2021.1:</p>
@@ -59,6 +59,13 @@ patchPluginXml {
 <em><p>0.2.6:</p>
 <ul>
   <li>Fix some errors</li>
+</ul></em>
+<em><p>0.2.7:</p>
+<ul>
+  <li>Remove depends datasource</li>
+</ul></em><em><p>0.2.8:</p>
+<ul>
+  <li>适配2021.3版本</li>
 </ul></em>"""
 
 }
