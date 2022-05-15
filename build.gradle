@@ -1,11 +1,11 @@
 plugins {
     id 'java'
-    id 'org.jetbrains.intellij' version '1.0'
+    id 'org.jetbrains.intellij' version '1.5.3'
 //    id 'org.jetbrains.kotlin.jvm' version '1.4.32'
 }
 
 group 'org.example'
-version '0.2.8'
+version '0.2.9'
 sourceCompatibility = 11
 targetCompatibility = 11
 
@@ -24,7 +24,7 @@ dependencies {
 
 // See https://github.com/JetBrains/gradle-intellij-plugin/
 intellij {
-    version = 'IU-2021.3'
+    version = 'IU-2022.1'
     plugins = ['com.intellij.java']
     type = 'IU'
 //    plugins = ['Spring', 'DatabaseTools', 'com.intellij.java']
@@ -32,7 +32,7 @@ intellij {
 }//
 patchPluginXml {
     sinceBuild = '203.8084.24'
-    untilBuild = '213.*'
+    untilBuild = '221.*'
     changeNotes = """
       If you have any comments please let me know.<br>
       <em><p>2021.1:</p>
@@ -66,7 +66,12 @@ patchPluginXml {
 </ul></em><em><p>0.2.8:</p>
 <ul>
   <li>适配2021.3版本</li>
-</ul></em>"""
+</ul></em>
+<em><p>0.2.9:</p>
+<ul>
+  <li>适配2022.1版本</li>
+</ul>
+</em>"""
 
 }
 test {
