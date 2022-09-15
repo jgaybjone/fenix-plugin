@@ -5,7 +5,7 @@ plugins {
 }
 
 group 'org.example'
-version '0.3.0'
+version '0.3.1'
 sourceCompatibility = 11
 targetCompatibility = 11
 
@@ -74,6 +74,10 @@ patchPluginXml {
 </em><em><p>0.3.0:</p>
 <ul>
   <li>适配2022.2版本</li>
+</ul>
+</em></em><em><p>0.3.1:</p>
+<ul>
+  <li>fix bugs</li>
 </ul>
 </em>"""
 

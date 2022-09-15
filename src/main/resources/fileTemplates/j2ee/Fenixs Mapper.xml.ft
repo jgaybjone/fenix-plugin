@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE fenixs PUBLIC "-//blinkfox.github.io//DTD Fenix//EN"
-        "https://blinkfox.github.io/fenix.dtd">
+<!DOCTYPE fenixs PUBLIC "-//blinkfox.github.io//DTD Fenix//EN" "https://blinkfox.github.io/fenix.dtd">
 <fenixs namespace="${NAMESPACE}" >
 </fenixs>
