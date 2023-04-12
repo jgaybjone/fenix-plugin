@@ -5,7 +5,7 @@ plugins {
 }
 
 group 'org.example'
-version '0.3.2'
+version '0.3.3'
 sourceCompatibility = 11
 targetCompatibility = 11
 
@@ -33,11 +33,11 @@ intellij {
 patchPluginXml {
 //    sinceBuild  = project.objects.property(kotlin.String).convention('203.8084.24')
     sinceBuild  = '203.8084.24'
-    untilBuild = '223.*'
+    untilBuild = '231.*'
     changeNotes = """
 If you have any comments please let me know.<br>
 <em>
-<p>0.3.2:</p>
+<p>0.3.3:</p>
 <ul>
   <li>fix bugs</li>
 </ul>
