@@ -9,6 +9,7 @@ import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.jetbrains.kotlin.resolve.jvm.KotlinJavaPsiFacade;
 
 import java.util.ArrayList;
 import java.util.List;

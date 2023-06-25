@@ -13,6 +13,7 @@
          on how to target different products -->
     <depends>com.intellij.modules.platform</depends>
     <depends>com.intellij.modules.java</depends>
+    <depends>org.jetbrains.kotlin</depends>
 
 
     <extensions defaultExtensionNs="com.intellij">
@@ -24,6 +25,8 @@
         <codeInsight.lineMarkerProvider language="XML"
                                         implementationClass="cn.jgayb.fenixplugin.StatementLineMarkerProvider"/>
         <codeInsight.lineMarkerProvider language="JAVA"
+                                        implementationClass="cn.jgayb.fenixplugin.FenixItemLineMarkerProvider"/>
+        <codeInsight.lineMarkerProvider language="kotlin"
                                         implementationClass="cn.jgayb.fenixplugin.FenixItemLineMarkerProvider"/>
         <fileTemplateGroup implementation="cn.jgayb.fenixplugin.FenixsFileTemplateDescriptorFactory"/>
         <intentionAction order="first">
