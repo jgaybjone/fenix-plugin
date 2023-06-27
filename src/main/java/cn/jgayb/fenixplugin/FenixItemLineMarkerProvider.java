@@ -21,10 +21,8 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.kotlin.name.FqName;
 import org.jetbrains.kotlin.psi.*;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Created by jg.wang on 2021/6/16.
@@ -133,27 +131,29 @@ public class FenixItemLineMarkerProvider extends RelatedItemLineMarkerProvider {
                     .filter(ann -> ann.getText().startsWith("@QueryFenix"))
                     .findFirst()
                     .ifPresent(ann -> {
+                        System.out.println("Annotation: " + ann.getText());
                         final KtValueArgumentList valueArgumentList = ann.getValueArgumentList();
                         if (valueArgumentList != null) {
                             final List<KtValueArgument> arguments = valueArgumentList.getArguments();
-                            arguments.stream()
-                                    .filter(argument -> argument.getArgumentName() == null || argument.getArgumentName().getAsName().asString().equals("value"))
-                                    .map(argument -> {
-                                        final String text1 = argument.getText();
-                                        final KtValueArgumentName argumentName = argument.getArgumentName();
-                                        String fenixM;
-                                        if (argumentName != null) {
-                                            fenixM = text1.replace(argumentName.getAsName().asString(), "").trim();
-                                        } else {
-                                            fenixM = text1.trim();
-                                        }
-                                        if (StringUtils.isEmpty(fenixM)) {
-                                            fenixM = ktFun.getText();
-                                        }
-                                        return fenixM;
-                                    }).findFirst().ifPresent(fenixM -> {
-                                        this.process(ktFun.getProject(), processor, namespace + "." + fenixM);
-                                    });
+                            System.out.println("Annotation args: " + arguments.stream().map(KtValueArgument::getText).filter(Objects::nonNull).collect(Collectors.joining(";")));
+                            final Optional<KtValueArgument> fenixArgOpt = valueArgumentList.getArguments().stream().filter(a -> {
+                                return a.getArgumentName() == null || a.getArgumentName().getAsName().asString().equals("value");
+                            }).findFirst();
+                            if (fenixArgOpt.isPresent()) {
+                                final KtValueArgument argument = fenixArgOpt.get();
+                                final String text1 = argument.getText().replace("\"", "");
+                                final KtValueArgumentName argumentName = argument.getArgumentName();
+                                String fenixM;
+                                if (argumentName != null) {
+                                    fenixM = text1.replace(argumentName.getAsName().asString(), "").trim();
+                                } else {
+                                    fenixM = text1.trim();
+                                }
+                                this.process(ktFun.getProject(), processor, namespace + "." + fenixM);
+                            } else {
+                                String fenixM = ktFun.getName();
+                                this.process(ktFun.getProject(), processor, namespace + "." + fenixM);
+                            }
                         } else {
                             String fenixM = ktFun.getName();
                             this.process(ktFun.getProject(), processor, namespace + "." + fenixM);

@@ -5,7 +5,7 @@ plugins {
 }
 
 group 'org.example'
-version '0.3.4'
+version '0.3.5'
 sourceCompatibility = 11
 targetCompatibility = 11
 
@@ -37,6 +37,12 @@ patchPluginXml {
     changeNotes = """
 If you have any comments please let me know.<br>
 <em>
+<p>0.3.5:</p>
+<ul>
+  <li>Fix bugs</li>
+</ul>
+</em>
+<em>
 <p>0.3.4:</p>
 <ul>
   <li>New features for kotlin</li>
@@ -54,6 +60,6 @@ If you have any comments please let me know.<br>
 test {
     useJUnitPlatform()
 }
-tasks.withType(JavaCompile) {
+tasks.withType(JavaCompile).configureEach {
     options.encoding = "UTF-8"
 }
