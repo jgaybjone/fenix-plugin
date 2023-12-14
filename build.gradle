@@ -1,17 +1,17 @@
 plugins {
     id 'java'
-    id 'org.jetbrains.intellij' version '1.5.3'
+    id 'org.jetbrains.intellij' version '1.15.0'
 //    id 'org.jetbrains.kotlin.jvm' version '1.4.32'
 }
 
-group 'org.example'
-version '0.3.5'
-sourceCompatibility = 11
-targetCompatibility = 11
+group 'com.jgayb'
+version '0.3.6'
+sourceCompatibility = 17
+targetCompatibility = 17
 
 repositories {
     maven { url "https://www.jetbrains.com/intellij-repository/releases" }
-    maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+    maven { url 'https://maven.aliyun.com/nexus/content/groups/public/' }
     mavenCentral()
 }
 
@@ -24,7 +24,7 @@ dependencies {
 
 // See https://github.com/JetBrains/gradle-intellij-plugin/
 intellij {
-    version = 'IU-2022.2'
+    version = 'IU-2023.2'
     plugins = ['com.intellij.java','Kotlin']
     type = 'IU'
 //    plugins = ['Spring', 'DatabaseTools', 'com.intellij.java']
@@ -33,9 +33,15 @@ intellij {
 patchPluginXml {
 //    sinceBuild  = project.objects.property(kotlin.String).convention('203.8084.24')
     sinceBuild  = '203.8084.24'
-    untilBuild = '232.*'
+    untilBuild = '235.*'
     changeNotes = """
 If you have any comments please let me know.<br>
+<em>
+<p>0.3.6:</p>
+<ul>
+  <li></li>
+</ul>
+</em>
 <em>
 <p>0.3.5:</p>
 <ul>

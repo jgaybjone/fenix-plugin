@@ -33,12 +33,10 @@ public class FenixItemLineMarkerProvider extends RelatedItemLineMarkerProvider {
     @Override
     protected void collectNavigationMarkers(@NotNull PsiElement element, @NotNull Collection<? super RelatedItemLineMarkerInfo<?>> result) {
         CommonProcessors.CollectProcessor<IdDomElement> processor = new CommonProcessors.CollectProcessor<IdDomElement>();
-        if (element instanceof PsiMethodImpl) {
-            final PsiMethodImpl psiMethod = (PsiMethodImpl) element;
+        if (element instanceof PsiMethodImpl psiMethod) {
             Arrays.stream(psiMethod.getAnnotations()).filter(psiAnnotation -> Objects.equals(psiAnnotation.getQualifiedName(), "com.blinkfox.fenix.jpa.QueryFenix")).findFirst().ifPresent(psiAnnotation -> {
                 final PsiAnnotationMemberValue psiAnnotationMemberValue = psiAnnotation.findAttributeValue("value");
-                if (psiAnnotationMemberValue instanceof PsiLiteralExpressionImpl) {
-                    final PsiLiteralExpressionImpl psiLiteralExpression = (PsiLiteralExpressionImpl) psiAnnotationMemberValue;
+                if (psiAnnotationMemberValue instanceof PsiLiteralExpressionImpl psiLiteralExpression) {
                     final Object valueObj = psiLiteralExpression.getValue();
                     if (valueObj != null && !valueObj.toString().isEmpty()) {
                         final String value = psiLiteralExpression.getValue().toString();
@@ -65,8 +63,9 @@ public class FenixItemLineMarkerProvider extends RelatedItemLineMarkerProvider {
         }
         Collection<IdDomElement> results = processor.getResults();
         if (CollectionUtils.isNotEmpty(results)) {
+            var icon = IconLoader.getIcon("/images/logo.png", Objects.requireNonNull(ReflectionUtil.getGrandCallerClass()));
             NavigationGutterIconBuilder<PsiElement> builder = NavigationGutterIconBuilder
-                    .create(IconLoader.getIcon("/images/logo.png", Objects.requireNonNull(ReflectionUtil.getGrandCallerClass())))
+                    .create(icon)
                     .setAlignment(GutterIconRenderer.Alignment.CENTER)
                     .setTargets(Collections2.transform(results, DomElement::getXmlTag))
                     .setTooltipTitle("Navigation to Target in Fenix Mapper Xml");
