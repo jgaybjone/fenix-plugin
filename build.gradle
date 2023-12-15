@@ -5,7 +5,7 @@ plugins {
 }
 
 group 'com.jgayb'
-version '0.3.6'
+version '0.3.7'
 sourceCompatibility = 17
 targetCompatibility = 17
 
@@ -36,6 +36,12 @@ patchPluginXml {
     untilBuild = '235.*'
     changeNotes = """
 If you have any comments please let me know.<br>
+<em>
+<p>0.3.7:</p>
+<ul>
+  <li>Fix link icon display bug</li>
+</ul>
+</em>
 <em>
 <p>0.3.6:</p>
 <ul>

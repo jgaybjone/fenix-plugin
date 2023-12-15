@@ -14,7 +14,6 @@ import com.intellij.psi.impl.source.PsiMethodImpl;
 import com.intellij.psi.impl.source.tree.java.PsiLiteralExpressionImpl;
 import com.intellij.util.CommonProcessors;
 import com.intellij.util.Processor;
-import com.intellij.util.ReflectionUtil;
 import com.intellij.util.xml.DomElement;
 import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.NotNull;
@@ -63,7 +62,7 @@ public class FenixItemLineMarkerProvider extends RelatedItemLineMarkerProvider {
         }
         Collection<IdDomElement> results = processor.getResults();
         if (CollectionUtils.isNotEmpty(results)) {
-            var icon = IconLoader.getIcon("/images/logo.png", Objects.requireNonNull(ReflectionUtil.getGrandCallerClass()));
+            var icon = IconLoader.getIcon("/images/pluginIcon.svg", FenixDescription.class);
             NavigationGutterIconBuilder<PsiElement> builder = NavigationGutterIconBuilder
                     .create(icon)
                     .setAlignment(GutterIconRenderer.Alignment.CENTER)

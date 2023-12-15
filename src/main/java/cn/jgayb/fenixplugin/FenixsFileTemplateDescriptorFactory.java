@@ -15,8 +15,8 @@ public class FenixsFileTemplateDescriptorFactory implements FileTemplateGroupDes
 
     @Override
     public FileTemplateGroupDescriptor getFileTemplatesDescriptor() {
-        FileTemplateGroupDescriptor group = new FileTemplateGroupDescriptor("Fenixs", IconLoader.getIcon("/images/logo.png", FenixsFileTemplateDescriptorFactory.class));
-        group.addTemplate(new FileTemplateDescriptor(FENIX_MAPPER_XML_TEMPLATE, IconLoader.getIcon("/images/logo.png", FenixsFileTemplateDescriptorFactory.class)));
+        FileTemplateGroupDescriptor group = new FileTemplateGroupDescriptor("Fenixs", IconLoader.getIcon("/images/pluginIcon.svg", FenixsFileTemplateDescriptorFactory.class));
+        group.addTemplate(new FileTemplateDescriptor(FENIX_MAPPER_XML_TEMPLATE, IconLoader.getIcon("/images/pluginIcon.svg", FenixsFileTemplateDescriptorFactory.class)));
         return group;
     }
 

@@ -30,8 +30,7 @@ public class StatementLineMarkerProvider implements LineMarkerProvider {
         return processResult.map(psiMethod -> new LineMarkerInfo<>(
                 (XmlTag) element,
                 element.getTextRange(),
-                IconLoader.getIcon("/images/logo.png", Objects.requireNonNull(ReflectionUtil.getGrandCallerClass())),
-
+                IconLoader.getIcon("/images/pluginIcon.svg", FenixsFileTemplateDescriptorFactory.class),
                 from -> "Data access object found - " + Objects.requireNonNull(psiMethod.getContainingClass()).getQualifiedName(),
                 (e, from) -> ((Navigatable) psiMethod).navigate(true),
                 GutterIconRenderer.Alignment.CENTER,
