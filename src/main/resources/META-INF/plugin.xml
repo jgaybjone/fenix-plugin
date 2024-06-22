@@ -19,8 +19,6 @@
     <extensions defaultExtensionNs="com.intellij">
         <!-- Add your extensions here -->
         <dom.fileDescription implementation="cn.jgayb.fenixplugin.FenixDescription"/>
-        <projectService serviceImplementation="cn.jgayb.fenixplugin.JavaService"/>
-        <projectService serviceImplementation="cn.jgayb.fenixplugin.EditorService"/>
         <standardResourceProvider implementation="cn.jgayb.fenixplugin.FenixStandardResourceProvider"/>
         <codeInsight.lineMarkerProvider language="XML"
                                         implementationClass="cn.jgayb.fenixplugin.StatementLineMarkerProvider"/>
@@ -32,7 +30,8 @@
         <intentionAction order="first">
             <className>cn.jgayb.fenixplugin.GenerateMapperIntention</className>
         </intentionAction>
-        <completion.contributor language="JPAQL" implementationClass="cn.jgayb.fenixplugin.JPAQLParamCompletionContributor"/>
+        <completion.contributor language="JPAQL"
+                                implementationClass="cn.jgayb.fenixplugin.JPAQLParamCompletionContributor"/>
     </extensions>
 
     <!--    <actions>-->
