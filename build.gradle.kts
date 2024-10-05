@@ -101,3 +101,16 @@ If you have any comments please let me know.<br>
         token.set(System.getenv("PUBLISH_TOKEN"))
     }
 }
+
+tasks.runIde {
+    jvmArgumentProviders += CommandLineArgumentProvider {
+        listOf("-Didea.kotlin.plugin.use.k2=true")
+    }
+}
+
+
+tasks.test {
+    jvmArgumentProviders += CommandLineArgumentProvider {
+        listOf("-Didea.kotlin.plugin.use.k2=true")
+    }
+}
