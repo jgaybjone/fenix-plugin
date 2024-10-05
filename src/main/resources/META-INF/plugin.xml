@@ -18,6 +18,7 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <!-- Add your extensions here -->
+        <supportsKotlinPluginMode supportsK1="true" supportsK2="true" />
         <dom.fileDescription implementation="cn.jgayb.fenixplugin.FenixDescription"/>
         <standardResourceProvider implementation="cn.jgayb.fenixplugin.FenixStandardResourceProvider"/>
         <codeInsight.lineMarkerProvider language="XML"
