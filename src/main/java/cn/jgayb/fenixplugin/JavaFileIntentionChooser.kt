@@ -29,7 +29,7 @@ abstract class JavaFileIntentionChooser : IntentionChooser {
 
     fun isTargetPresentInXml(element: PsiElement): Boolean {
         val javaService: JavaService = JavaService.getInstance(element.project)
-        val processor: Optional<Any> = javaService.findWithFindFirstProcessor(element)
+        val processor: Optional<*> = javaService.findWithFindFirstProcessor(element)
         return processor.isPresent
     }
 }

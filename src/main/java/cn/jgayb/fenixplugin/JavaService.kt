@@ -4,8 +4,7 @@ import com.intellij.openapi.components.Service
 import com.intellij.openapi.project.Project
 import com.intellij.psi.*
 import com.intellij.psi.impl.source.PsiClassReferenceType
-import com.intellij.util.CommonProcessors
-import com.intellij.util.Processor
+import com.intellij.util.CommonProcessors.FindFirstProcessor
 import com.intellij.util.xml.DomElement
 import java.util.*
 
@@ -22,29 +21,31 @@ class JavaService(private val project: Project) {
     }
 
     fun findStatement(method: PsiMethod?): Optional<DomElement> {
-        val processor = CommonProcessors.FindFirstProcessor<DomElement>()
+        val processor = FindFirstProcessor<Any>()
         checkNotNull(method)
         process(method, processor)
-        return if (processor.isFound) Optional.ofNullable(processor.foundValue) else Optional.empty()
+        return if (processor.isFound) Optional.ofNullable(processor.foundValue as DomElement) else Optional.empty()
     }
 
 
-    fun process(target: PsiElement, processor: Processor<*>) {
+    fun process(target: PsiElement, processor: FindFirstProcessor<Any>) {
         if (target is PsiMethod) {
             process(target, processor)
         } else if (target is PsiClass) {
             process(target, processor)
+        } else {
+            println("Target type unknown")
         }
     }
 
-    fun <T> findWithFindFirstProcessor(target: PsiElement): Optional<T & Any> {
-        val processor = CommonProcessors.FindFirstProcessor<T>()
+    fun findWithFindFirstProcessor(target: PsiElement): Optional<*> {
+        val processor = FindFirstProcessor<Any>()
         process(target, processor)
         return Optional.ofNullable(processor.foundValue)
     }
 
 
-    fun process(psiMethod: PsiMethod, processor: Processor<IdDomElement?>) {
+    fun process(psiMethod: PsiMethod, processor: FindFirstProcessor<Any>) {
         val psiClass = psiMethod.containingClass ?: return
         val id = psiClass.qualifiedName + "." + psiMethod.name
         for (fenixs in MapperUtils.findMappers(psiMethod.project)) {
@@ -56,7 +57,7 @@ class JavaService(private val project: Project) {
         }
     }
 
-    fun process(clazz: PsiClass, processor: Processor<Fenixs?>) {
+    fun process(clazz: PsiClass, processor: FindFirstProcessor<Any>) {
         val ns = clazz.qualifiedName
         for (mapper in MapperUtils.findMappers(clazz.project)) {
             if (MapperUtils.getNamespace(mapper).equals(ns)) {

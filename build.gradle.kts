@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.jgayb"
-version = "0.3.9"
+version = "0.3.10"
 
 repositories {
     maven { url = uri("https://www.jetbrains.com/intellij-repository/releases") }
@@ -45,6 +45,12 @@ tasks {
         changeNotes.set(
             """
 If you have any comments please let me know.<br>
+<em>
+<p>0.3.10:</p>
+<ul>
+  <li>Fix bugs</li>
+</ul>
+</em>
 <em>
 <p>0.3.9:</p>
 <ul>
