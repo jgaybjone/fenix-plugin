@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.jgayb"
-version = "0.3.10"
+version = "0.3.11"
 
 repositories {
     maven { url = uri("https://www.jetbrains.com/intellij-repository/releases") }
@@ -41,7 +41,7 @@ tasks {
 
     patchPluginXml {
         sinceBuild.set("232")
-        untilBuild.set("243.*")
+        untilBuild.set("299.*")
         changeNotes.set(
             """
 If you have any comments please let me know.<br>
